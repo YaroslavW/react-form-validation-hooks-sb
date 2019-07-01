@@ -2,19 +2,29 @@ import React, { useState } from "react";
 
 const Form = () => {
   const [values, setValues] = useState({ email: "", password: "" });
+  
   const handleChange = event => {
     const { name, value } = event.target;
-    // console.log(event.target.name);
-    // console.log(event.target.value);
+    console.log(event.target.name);
+    console.log(event.target.value);
     setValues({
       ...values,
       [name]: value
       // [event.target.name] : event.target.value
     });
   };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    submit()
+
+  }
+  function submit(){
+    console.log("Submitted Succesful");
+  }
   return (
     <div>
-      <form noValidate>
+      <form onSubmit={handleSubmit} noValidate>
         <div>
           <label>Email</label>
           <div>
